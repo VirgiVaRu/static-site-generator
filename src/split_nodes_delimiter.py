@@ -13,11 +13,13 @@ def split_nodes_delimiter(old_nodes, delimiter, text_type):
         
         for i in range(0, len(segments)-1, 2):
             text_node = TextNode(segments[i], TextType.TEXT)
-            new_nodes.append(text_node)
+            if text_node.text != "":
+                new_nodes.append(text_node)
             delimited_node = TextNode(segments[i+1], text_type)
             new_nodes.append(delimited_node)
         text_node = TextNode(segments[-1], TextType.TEXT)
-        new_nodes.append(text_node)
+        if text_node.text != "":
+            new_nodes.append(text_node)
     
     return new_nodes
                     

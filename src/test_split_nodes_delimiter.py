@@ -29,7 +29,7 @@ class TestSplitNodesDelimiter(unittest.TestCase):
             TextNode("This has `code`", TextType.TEXT)
         ]
         new_nodes = split_nodes_delimiter(old_nodes, '`', TextType.CODE)
-        self.assertEqual(len(new_nodes), 3)
+        self.assertEqual(len(new_nodes), 2)
 
     def test_split_two_bold(self):
         old_nodes = [
