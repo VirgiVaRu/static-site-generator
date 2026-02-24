@@ -21,3 +21,14 @@ def generate_page(from_path, template_path, dest_path):
 
     with open(dest_path, "w") as dest:
         dest.write(final_page)
+
+def generate_pages_recursive(dir_path_content, template_path, dest_dir_path):
+    markdown_files = os.listdir(dir_path_content)
+    for file in markdown_files:
+        src_path = os.path.join(dir_path_content, file)
+        dest_path = os.path.join(dest_dir_path, file.replace(".md", ".html"))
+        if os.path.isfile(src_path):
+            generate_page(src_path, template_path, dest_path)
+        else:
+            os.makedirs(dest_path)
+            generate_pages_recursive(src_path, template_path, dest_path)
