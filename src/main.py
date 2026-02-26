@@ -5,7 +5,7 @@ from copy_contents import copy_contents
 from generate_page import generate_pages_recursive
 
 def main():
-    if sys.argv:
+    if len(sys.argv) == 2:
         basepath = sys.argv[1]
     else:
         basepath = "/"
